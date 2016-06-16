@@ -4,28 +4,28 @@
     "AWS::CloudFormation::Designer": {
       "19117008-4607-4d30-95d7-9e27b231f551": {
         "size": {
-          "width": 490,
-          "height": 330
+          "width": 420,
+          "height": 220
         },
         "position": {
-          "x": 590,
-          "y": 70
+          "x": 720,
+          "y": 170
         },
         "z": 1,
         "embeds": [
+          "35c845c6-61b8-422c-be16-f1395a95879f",
           "d232ad6c-80ca-4c33-ac38-bbbf89e7dd4a",
-          "e3f368ef-533b-484c-b3f4-897729901208",
-          "35c845c6-61b8-422c-be16-f1395a95879f"
+          "e3f368ef-533b-484c-b3f4-897729901208"
         ]
       },
       "e3f368ef-533b-484c-b3f4-897729901208": {
         "size": {
-          "width": 270,
-          "height": 90
+          "width": 290,
+          "height": 100
         },
         "position": {
-          "x": 780,
-          "y": 140
+          "x": 840,
+          "y": 250
         },
         "z": 2,
         "parent": "19117008-4607-4d30-95d7-9e27b231f551",
@@ -41,8 +41,8 @@
           "height": 60
         },
         "position": {
-          "x": 1090,
-          "y": 80
+          "x": 960,
+          "y": 100
         },
         "z": 0,
         "parent": "19117008-4607-4d30-95d7-9e27b231f551",
@@ -57,8 +57,8 @@
           "height": 60
         },
         "position": {
-          "x": 460,
-          "y": 50
+          "x": 640,
+          "y": 170
         },
         "z": 1,
         "embeds": []
@@ -74,12 +74,12 @@
       },
       "35c845c6-61b8-422c-be16-f1395a95879f": {
         "size": {
-          "width": 150,
-          "height": 170
+          "width": 80,
+          "height": 90
         },
         "position": {
-          "x": 600,
-          "y": 130
+          "x": 750,
+          "y": 180
         },
         "z": 2,
         "parent": "19117008-4607-4d30-95d7-9e27b231f551",
@@ -93,8 +93,8 @@
           "height": 60
         },
         "position": {
-          "x": 790,
-          "y": 160
+          "x": 860,
+          "y": 270
         },
         "z": 3,
         "parent": "e3f368ef-533b-484c-b3f4-897729901208",
@@ -112,8 +112,8 @@
           "height": 60
         },
         "position": {
-          "x": 660,
-          "y": 150
+          "x": 760,
+          "y": 200
         },
         "z": 3,
         "parent": "35c845c6-61b8-422c-be16-f1395a95879f",
@@ -122,7 +122,8 @@
           "c7820c4a-775a-4228-9f22-d7b91120d6c9"
         ],
         "dependson": [
-          "c7820c4a-775a-4228-9f22-d7b91120d6c9"
+          "c7820c4a-775a-4228-9f22-d7b91120d6c9",
+          "1e18cb0d-7ee5-4790-94f0-2b50519dc1a8"
         ]
       },
       "da60be23-5de7-4310-8cfc-1cae8042ada7": {
@@ -167,8 +168,8 @@
           "height": 60
         },
         "position": {
-          "x": 880,
-          "y": 160
+          "x": 960,
+          "y": 270
         },
         "z": 3,
         "parent": "e3f368ef-533b-484c-b3f4-897729901208",
@@ -186,8 +187,8 @@
           "height": 60
         },
         "position": {
-          "x": 970,
-          "y": 160
+          "x": 1050,
+          "y": 270
         },
         "z": 3,
         "parent": "e3f368ef-533b-484c-b3f4-897729901208",
@@ -198,6 +199,26 @@
         "isrelatedto": [
           "d232ad6c-80ca-4c33-ac38-bbbf89e7dd4a"
         ]
+      },
+      "9c4181f8-b640-4266-ab00-e30b2bf26f48": {
+        "source": {
+          "id": "fe5557b3-266c-40ef-b6bd-4ad21f7511c5",
+          "selector": "g:nth-child(1) g:nth-child(4) g:nth-child(5) circle:nth-child(1)     ",
+          "port": "AWS::DependencyLink-*"
+        },
+        "target": {
+          "id": "c7820c4a-775a-4228-9f22-d7b91120d6c9"
+        },
+        "z": 5
+      },
+      "ec9732a1-755a-45fd-8f95-00f015fdc006": {
+        "source": {
+          "id": "fe5557b3-266c-40ef-b6bd-4ad21f7511c5"
+        },
+        "target": {
+          "id": "1e18cb0d-7ee5-4790-94f0-2b50519dc1a8"
+        },
+        "z": 4
       }
     }
   },
@@ -313,7 +334,8 @@
         }
       },
       "DependsOn": [
-        "InternetGateway"
+        "InternetGateway",
+        "GatewayAttachment"
       ]
     },
     "VPC": {
