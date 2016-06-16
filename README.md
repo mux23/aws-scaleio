@@ -1,7 +1,9 @@
 # aws-scaleio
+
+![Cloudformation Template](docs/cloudformation.jpg)
 A project to stand up a ScaleIO cluster in AWS, for testing against EMC {code} projects. This project is intended to be a component in a continuous-integration pipeline, so we can ~~stop testing against the ScaleIO cluster in Kenny's garage~~ automate testing in a more distributable fashion.
 
-This template uses a custom AMI image. You've been warned!
+This template uses a custom AMI image that is (currently) only available in the US-West-1 (aka N.California) region. You've been warned!
 
 ##Usage
 
@@ -34,3 +36,14 @@ To launch this stack using AWS commandline tools, use a commandline similar to t
 ```
 
 The stack will take approximately two minutes to build, and then should be available for login.
+
+##Once It's Running
+The script launches three AWS instances of type 't1.medium', with the internal IP addresses 10.0.0.11, 10.0.0.12 and 10.0.0.13. The ScaleIO installer was deployed on 10.0.0.11 and then used to install **ScaleIO v2.0.0-5014** onto the three nodes.
+
+Each of the nodes has a 120Gb SSD drive attached - this drive appears as **/dev/xdvc**.
+
+When the machines come up, there appears to be a bit of a race condition between 10.0.0.11 and 10.0.0.12 as to whom will become the MDM master, whatever that is. SSHing to on or more of the machines until you find the master, then issuing the following command:
+
+```scli --login --username admin --password F00barbaz```
+
+should log you into the ScaleIO MDM, then you should be able to manipulate the storage volumes.
