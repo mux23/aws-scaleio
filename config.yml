@@ -1,0 +1,12 @@
+rexray:
+  storageDrivers:
+  - scaleio
+scaleio:
+  endpoint: https://10.0.0.11/api
+  insecure: true
+  userName: admin
+  password: F00barbaz
+  systemId: 39f2e3fe27fbc1dc
+  protectionDomainName: default
+  storagePoolName: default
+
