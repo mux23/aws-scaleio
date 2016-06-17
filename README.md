@@ -12,7 +12,6 @@ Launch this template **currently in the US-West-1 (_aka N.California_) region on
 The password for the ScaleIO admin is 'F00barbaz'. Other places a password might be used, same thing.
 
 ###AWS Web GUI
-
 Using the AWS web gui, in the services selection window:
  - click 'Cloudformation' under 'Management Tools'
  - click 'Create Stack', then 'Choose a Template'
@@ -23,10 +22,9 @@ Using the AWS web gui, in the services selection window:
  - click next, add tags if you want, or don't, then click next
  - review your settings and click 'Create' to create the stack
 
-The stack will take approximately two minutes to build, and then should be available for login.
+The stack will take approximately two minutes to build, and then the nodes should be available for ssh login.
 
 ###AWS Commandline
-
 To launch this stack using AWS commandline tools, use a commandline similar to the following:
 
 ```
@@ -47,3 +45,26 @@ When the machines come up, there appears to be a bit of a race condition between
 ```scli --login --username admin --password F00barbaz```
 
 should log you into the ScaleIO MDM, then you should be able to manipulate the storage volumes.
+
+##Using REX-Ray
+- Install the latest version of REX-Ray from [the REX-Ray Github repository](https://github.com/emccode/rexray)
+```
+curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable
+```
+- Create `/etc/rexray/config.yml` and add the following entries to that file:
+```YAML
+rexray:
+  storageDrivers:
+  - scaleio
+scaleio:
+  endpoint: https://10.0.0.11/api
+  insecure: true
+  userName: admin
+  password: F00barbaz
+  systemId: 39f2e3fe27fbc1dc
+  protectionDomainName: default
+  storagePoolName: default
+```
+- test with `rexray volume list` (success should return nothing at all)
+- read the docs at (http://rexray.readthedocs.io/en/stable/) for more information.
+
