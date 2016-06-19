@@ -36,6 +36,8 @@ To launch this stack using AWS commandline tools, use a commandline similar to t
 The stack will take approximately two minutes to build, and then should be available for login.
 
 ##Once It's Running
+This template uses Red Hat Enterprise Linux (RHEL) as the base operating system, so to log in with ssh *use the username "ec2-user"*.
+ 
 The script launches three AWS instances of type 't1.medium', with the internal IP addresses 10.0.0.11, 10.0.0.12 and 10.0.0.13. The ScaleIO installer was deployed on 10.0.0.11 and then used to install **ScaleIO v2.0.0-5014** onto the three nodes.
 
 Each of the nodes has a 120Gb SSD drive attached - this drive appears as **/dev/xdvc**.
