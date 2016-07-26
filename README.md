@@ -48,6 +48,38 @@ When the machines come up, there appears to be a bit of a race condition between
 
 should log you into the ScaleIO MDM, then you should be able to manipulate the storage volumes.
 
+##Using ScaleIO for n00bs
+
+ScaleIO is awfully cool, but can be a little confusing if you haven't used it before. Here's some tips.
+
+###Vocabulary
+*MDM* - Metadata Manager. Manages and configures the cluster. In this setup it can be either 10.0.0.11 or 10.0.0.12, depending on who won the race on startup. ¯\_(ツ)_/¯
+
+*SDS* - ScaleIO Data Server. Where data is stored. In this cluster, all three servers are configured as SDS's.
+
+*SDC* - ScaleIO Data Client. Where volumes can be mounted - typically any server you'd want a volume to be mounted on, and in this cluster all three servers are configured as SDC's.
+
+###Commands
+
+Log into the MDM as the admin user (note that the MDM IP might be 10.0.0.12):
+```scli --login --username admin --password F00barbaz --mdm_ip 10.0.0.11```
+
+Create a new 20-gig volume named "testvol"::
+```scli --add_volume --volume_name testvol --size_gb 20 --storage_pool_name default --protection_domain_name default --mdm_ip 10.0.0.11```
+
+Map that volume to the server at 10.0.0.12, so it can be mounted:
+```scli --map_volume_to_sdc --sdc_ip 10.0.0.12 --mdm_ip 10.0.0.11 --volume_name testvol```
+
+Mounting that volume on 10.0.0.12 (executed as root on 10.0.0.12):
+```mkfs.ext4 /dev/scinia && mount /dev/scinia /mnt/whatever```
+
+Unmapping the volume (should be unmounted first to avoid errors):
+```scli --unmap_volume_from_sdc --sdc_ip 10.0.0.12 --mdm_ip 10.0.0.11 --volume_name testvol```
+
+Get a list of all volumes in the cluster:
+```scli --query_all_volumes```
+
+
 ##Using REX-Ray
 - Install the latest version of REX-Ray from [the REX-Ray Github repository](https://github.com/emccode/rexray)
 ```
