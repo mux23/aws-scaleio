@@ -9,6 +9,8 @@ This template uses a custom AMI image that is (currently) only available in the 
 
 Launch this template **currently in the US-West-1 (_aka N.California_) region only** using AWS Cloudformation. 
 
+This template uses three 't2.medium' instances, which, in the N.California region, cost $0.068 per hour to run, so the AWS EC2 compute usage for this cluster should run you about $4.89/day to keep running. The template provisions six EBS volumes in total - three for the operating systems, and three 100-gigabyte volumes for storage. Pricing on EBS volumes is a little harder to figure out, but it should also be negligible.
+
 The password for the ScaleIO admin is 'F00barbaz'. Other places a password might be used, same thing.
 
 ###AWS Web GUI
