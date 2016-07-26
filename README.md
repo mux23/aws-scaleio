@@ -53,7 +53,7 @@ should log you into the ScaleIO MDM, then you should be able to manipulate the s
 ScaleIO is awfully cool, but can be a little confusing if you haven't used it before. Here's some tips.
 
 ###Vocabulary
-*MDM* - Metadata Manager. Manages and configures the cluster. In this setup it can be either 10.0.0.11 or 10.0.0.12, depending on who won the race on startup. ¯\_(ツ)_/¯
+*MDM* - Metadata Manager. Manages and configures the cluster. In this setup it can be either 10.0.0.11 or 10.0.0.12, depending on who won the race on startup. ¯\\_(ツ)_/¯
 
 *SDS* - ScaleIO Data Server. Where data is stored. In this cluster, all three servers are configured as SDS's.
 
