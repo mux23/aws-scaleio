@@ -52,7 +52,7 @@ should log you into the ScaleIO MDM, then you should be able to manipulate the s
 
 ##Using ScaleIO for n00bs
 
-ScaleIO is awfully cool, but can be a little confusing if you haven't used it before. Here's some tips.
+ScaleIO is awfully cool, but can be a little confusing if you haven't used it before. [Here's an excellent whitepaper on how it generally works](https://www.emc.com/collateral/white-papers/h14344-emc-scaleio-basic-architecture.pdf), and here's a couple of tips that I found useful to get started, having used a bunch of other big-storage thingeys before.
 
 ###Vocabulary
 *MDM* - Metadata Manager. Manages and configures the cluster. In this setup it can be either 10.0.0.11 or 10.0.0.12, depending on who won the race on startup. ¯\\_(ツ)_/¯
